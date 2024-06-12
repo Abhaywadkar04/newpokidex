@@ -20,7 +20,7 @@ Welcome to the Pokédex project! This project is a simple yet stylish web applic
 
 ## Demo
 
-You can see a live demo of the project [here](#).
+You can see a live demo of the project [ https://abhaywadkar04.github.io/newpokidex/](#).
 
 ## Installation
 
