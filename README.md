@@ -7,9 +7,7 @@ Welcome to the Pokédex project! This project is a simple yet stylish web applic
 - [Features](#features)
 - [Demo](#demo)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Features
 
