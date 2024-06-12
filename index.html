@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <script src="./pokemon.js" defer></script>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: #f8f8f8;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .main {
+            padding: 20px 0;
+        }
+
+        /* Header Styles */
+        .header-name {
+            background-color: #ffcb05;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-wrapper img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-wrapper h1 {
+            margin-left: 10px;
+            font-size: 2.5rem;
+            color: #3b4cca;
+            text-transform: uppercase;
+        }
+
+        .search-wrapper {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-wrap input {
+            border: none;
+            outline: none;
+            margin-left: 10px;
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        .search-wrap img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .search-close-icon {
+            cursor: pointer;
+        }
+
+        .sort-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .sort-wrap {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .sort-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .filter-wrapper {
+            display: flex;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 70px;
+            right: 20px;
+        }
+
+        .filter-wrapper p {
+            margin: 0;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .filter-wrap {
+            display: flex;
+            flex-direction: column;
+            font-style: oblique;
+        }
+
+        .filter-wrap div {
+            margin-bottom: 10px;
+        }
+
+        .filter-wrap label {
+            margin-left: 5px;
+        }
+
+        /* Pokemon List Styles */
+        .pokemon-list {
+            padding: 20px 0;
+        }
+
+        .list-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .list-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            width: calc(25% - 20px); /* Adjust as needed for responsive design */
+        }
+
+        .list-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .number-wrap, .name-wrap {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .img-wrap {
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .img-wrap img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .number-wrap p, .name-wrap p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* Not Found Message Styles */
+        #not-found-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ff0000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .list-item {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .list-item {
+                width: calc(100% - 20px);
+            }
+
+            .search-wrap {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .sort-wrapper {
+                flex-direction: column;
+                margin-left: 0;
+            }
+
+            .sort-wrap {
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <main class="main">
+        <header class="header-name">
+            <div class="container">
+                <div class="logo-wrapper">
+                    <img src="./assets/pokeball.svg" alt="pokeball">
+                    <h1>Pokedex</h1>
+                </div>
+                <div class="search-wrapper">
+                    <div class="search-wrap">
+                        <img src="./assets/search.svg" alt="search icon" class="search-icon"/>
+                        <input type="text" class="search-input body3-fonts" placeholder="Search" id="search-input">
+                        <img src="./assets/cross.svg" alt="cross icon" class="search-close-icon" id="search-close-icon">
+                    </div>
+                    <div class="sort-wrapper">
+                        <div class="sort-wrap">
+                            <img src="./assets/sorting.svg" alt="sorting" class="sort-icon" id="sort-icon">
+                            <span>Sort</span>
+                        </div>
+                        <div class="filter-wrapper">
+                            <p class="body2-fonts">Sort by:</p>
+                            <div class="filter-wrap">
+                                <div>
+                                    <input type="radio" id="number" name="filter" value="number" checked>
+                                    <label for="number" class="body3-fonts">Number</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="name" name="filter" value="name">
+                                    <label for="name" class="body3-fonts">Name</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="pokemon-list">
+            <div class="container">
+                <div class="list-wrapper">
+                </div>
+            </div>
+            <div id="not-found-message">Pokemon not found</div>
+        </section>
+    </main>
+</body>
+</html>
