@@ -5,7 +5,7 @@ Welcome to the Pokédex project! This project is a simple yet stylish web applic
 ## Table of Contents
 
 - [Features](#features)
-- [Demo](#demo)
+- [Demo](https://abhaywadkar04.github.io/newpokidex/)
 - [Installation](#installation)
 
 
