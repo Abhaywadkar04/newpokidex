@@ -52,6 +52,7 @@ function display(pokemons) {
     `;
     listItem.addEventListener("click", async () => {
       const success = await fetchdatabeforeredirect(pokemonID);
+      console.log(success)
       if (success) {
         window.location.href = `./detail.html?id=${pokemonID}`;
       }
@@ -86,4 +87,15 @@ function handleSearch() {
   } else {
     notFoundMessage.style.display = "none";
   }
+}
+
+const closeButton=document.querySelector(".search-close-icon");
+closeButton.addEventListener("click",clearSearch);
+
+
+function clearSearch(){
+  searchInput.value="";
+  display(allPokemons);
+  notFoundMessage.style.display="none";
+
 }
