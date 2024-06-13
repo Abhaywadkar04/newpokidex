@@ -8,15 +8,11 @@
     <style>
         /* Global Styles */
         body {
-            background-color: #f8f8f8;
+            background-color: #e0f7fa;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
-        }
-        .name-search{
-            display: flex ;
-            flex-direction: column;
         }
 
         .container {
@@ -30,7 +26,7 @@
 
         /* Header Styles */
         .header-name {
-            background-color: #ffcb05;
+            background-color: #00bcd4;
             padding: 20px 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -45,24 +41,26 @@
             width: 50px;
             height: 50px;
         }
-        .pokeball {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.5s ease-in-out;
-}
-.logo-wrapper:hover .pokeball {
-    transform: translateX(20px);  /* Moves the pokeball 20px to the right */
-}
 
-/* Hover effect for the pokeball */
-.logo-wrapper:hover .pokeball:hover {
-    transform: translateX(-20px);  /* Moves the pokeball 20px to the left when hovered over */
-}
+        .pokeball {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .logo-wrapper:hover .pokeball {
+            transform: translateX(20px);  /* Moves the pokeball 20px to the right */
+        }
+
+        /* Hover effect for the pokeball */
+        .logo-wrapper:hover .pokeball:hover {
+            transform: translateX(-20px);  /* Moves the pokeball 20px to the left when hovered over */
+        }
 
         .logo-wrapper h1 {
             margin-left: 10px;
             font-size: 2.5rem;
-            color: #3b4cca;
+            color: #fff;
             text-transform: uppercase;
         }
 
@@ -100,7 +98,7 @@
         }
 
         .sort-wrapper {
-            display: flex;
+            display: none;
             align-items: center;
             margin-left: 20px;
         }
@@ -137,7 +135,6 @@
         .filter-wrap {
             display: flex;
             flex-direction: column;
-            font-style: oblique;
         }
 
         .filter-wrap div {
@@ -167,7 +164,7 @@
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
-            width: calc(25% - 20px); /* Adjust as needed for responsive design */
+            width: calc(33% - 20px); /* Adjust as needed for responsive design */
         }
 
         .list-item:hover {
@@ -182,19 +179,27 @@
 
         .img-wrap {
             text-align: center;
-            background-color: #f2f2f2;
+            background-color: #e0f7fa;
             padding: 10px;
         }
 
         .img-wrap img {
-            width: 80px;
-            height: 80px;
+            width: 150px;
+            height: 150px;
         }
 
         .number-wrap p, .name-wrap p {
             margin: 0;
             font-size: 1.1rem;
             font-weight: bold;
+        }
+
+        .number-wrap p {
+            color: #00bcd4;
+        }
+
+        .name-wrap p {
+            color: #00796b;
         }
 
         /* Not Found Message Styles */
@@ -234,7 +239,6 @@
         }
 
     </style>
-    
 </head>
 <body>
     <main class="main">
