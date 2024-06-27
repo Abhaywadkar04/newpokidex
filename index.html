@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             color: #333;
+            cursor: url('./pokeball.png'), auto;
         }
 
         .container {
@@ -52,7 +53,6 @@
             transform: translateX(20px);  /* Moves the pokeball 20px to the right */
         }
 
-        /* Hover effect for the pokeball */
         .logo-wrapper:hover .pokeball:hover {
             transform: translateX(-20px);  /* Moves the pokeball 20px to the left when hovered over */
         }
@@ -175,13 +175,17 @@
         .number-wrap, .name-wrap {
             padding: 10px;
             text-align: center;
+            cursor: url('./pokeball.png'), auto;
         }
 
         .img-wrap {
             text-align: center;
             background-color: #e0f7fa;
             padding: 10px;
-        }
+            cursor: url('./pokeball.png'), auto;
+}
+
+        
 
         .img-wrap img {
             width: 150px;
@@ -246,6 +250,7 @@
             <div class="container">
                 <div class="name-search">
                     <div class="logo-wrapper">
+                        <img src="./assets/charizardfly.gif" alt="charizardfly">
                         <img src="./assets/pokeball.svg" alt="pokeball" class="pokeball">
                         <h1 class="pokedex">Pokédex</h1>
                     </div>
@@ -254,25 +259,24 @@
                             <img src="./assets/search.svg" alt="search icon" class="search-icon"/>
                             <input type="text" autofocus class="search-input body3-fonts" placeholder="Search" id="search-input">
                             <img src="./assets/cross.svg" alt="cross icon" class="search-close-icon" id="search-close-icon">
+                        </div>
                     </div>
-                </div>
                     <div class="sort-wrapper">
                         <div class="sort-wrap">
                             <!-- <img src="./assets/sorting.svg" alt="sorting" class="sort-icon" id="sort-icon"> -->
                             <span></span>
                         </div>
                     </div>
-                        <div class="filter-wrapper">
-                            <p class="body2-fonts">Sort by:</p>
-                            <div class="filter-wrap">
-                                <div>
-                                    <input type="radio" id="number" name="filter" value="number" checked>
-                                    <label for="number" class="body3-fonts">Number</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="name" name="filter" value="name">
-                                    <label for="name" class="body3-fonts">Name</label>
-                                </div>
+                    <div class="filter-wrapper">
+                        <p class="body2-fonts">Sort by:</p>
+                        <div class="filter-wrap">
+                            <div>
+                                <input type="radio" id="number" name="filter" value="number" checked>
+                                <label for="number" class="body3-fonts">Number</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="name" name="filter" value="name">
+                                <label for="name" class="body3-fonts">Name</label>
                             </div>
                         </div>
                     </div>

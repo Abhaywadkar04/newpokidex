@@ -7,6 +7,7 @@ const notFoundMessage = document.querySelector("#not-found-message");
 
 let allPokemons = [];
 
+
 fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${MAX_POKEMON}`)
   .then((response) => response.json())
   .then((data) => {
@@ -44,7 +45,7 @@ function display(pokemons) {
         <p class="caption-font">#${pokemonID}</p>
       </div>
       <div class="img-wrap">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}" loading="lazy">
       </div>
       <div class="name-wrap">
         <p class="body3-font">${pokemon.name}</p>
@@ -99,3 +100,8 @@ function clearSearch(){
   notFoundMessage.style.display="none";
 
 }
+// Example JavaScript code to dynamically set the cursor
+const element = document.querySelector('.custom-cursor-element');
+element.addEventListener('mouseenter', () => {
+    element.style.cursor = 'url(images/custom-cursor.png), auto';
+});
