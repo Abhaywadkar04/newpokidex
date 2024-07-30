@@ -1,5 +1,6 @@
 const MAX_POKEMON = 251;
 const listWrapper = document.querySelector(".list-wrapper");
+const listWrapper2 = document.querySelector(".list-wrapper2");
 const searchInput = document.querySelector("#search-input");
 const numberFilter = document.querySelector("#number");
 const nameFilter = document.querySelector("#name");
@@ -41,15 +42,17 @@ function display(pokemons) {
     const listItem = document.createElement("div");
     listItem.className = "list-item";
     listItem.innerHTML = `
-      <div class="number-wrap">
-        <p class="caption-font">#${pokemonID}</p>
-      </div>
-      <div class="img-wrap">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}" loading="lazy">
-      </div>
-      <div class="name-wrap">
-        <p class="body3-font">${pokemon.name}</p>
-      </div>
+      <button class="card-pokemon ${pokemon.name.toLowerCase()} js-open-details-pokemon">
+        <div class="image">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}" loading="lazy">
+        </div>
+        <div class="info">
+          <div class="text">
+            <span>#${pokemonID.toString().padStart(3, '0')}</span>
+            <h3>${pokemon.name}</h3>
+          </div>
+        </div>
+      </button>
     `;
     listItem.addEventListener("click", async () => {
       const success = await fetchdatabeforeredirect(pokemonID);
@@ -61,6 +64,57 @@ function display(pokemons) {
     listWrapper.appendChild(listItem);
   });
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const listWrapper2 = document.getElementById("listWrapper2");
+
+  async function fetchPokemonList() {
+      try {
+          const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151');
+          const data = await response.json();
+          display2(data.results);
+      } catch (error) {
+          console.error("Failed to fetch Pokemon list:", error);
+      }
+  }
+
+  function display2(pokemons) {
+      listWrapper2.innerHTML = "";
+
+      // Show only starting 3 pokemon
+      const startingPokemons = [pokemons[0], pokemons[3], pokemons[6], pokemons[24]];
+
+      startingPokemons.forEach((pokemon) => {
+          const pokemonID = pokemon.url.split("/")[6];
+          const listItem = document.createElement("div");
+          listItem.className = "list-item";
+          listItem.innerHTML = `
+          <button class="card-pokemon ${pokemon.name.toLowerCase()} js-open-details-pokemon">
+              <div class="image">
+                  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}" loading="lazy">
+              </div>
+              <div class="info">
+                  <div class="text">
+                      <span>#${pokemonID.toString().padStart(3, '0')}</span>
+                      <h3>${pokemon.name}</h3>
+                  </div>
+                  
+              </div>
+          `;
+          listItem.addEventListener("click", async () => {
+              const success = await fetchdatabeforeredirect(pokemonID);
+              if (success) {
+                  window.location.href = `./detail.html?id=${pokemonID}`;
+              }
+          });
+          listWrapper2.appendChild(listItem);
+      });
+  }
+
+  fetchPokemonList();
+});
+
 
 searchInput.addEventListener("keyup", handleSearch);
 
@@ -97,6 +151,7 @@ closeButton.addEventListener("click",clearSearch);
 function clearSearch(){
   searchInput.value="";
   display(allPokemons);
+  display2(allPokemons);
   notFoundMessage.style.display="none";
 
 }

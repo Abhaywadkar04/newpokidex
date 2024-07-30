@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
     <script src="./pokemon.js" defer></script>
-    <style>
+    <link rel="stylesheet" href="main.css">
+     <style>
         /* Global Styles */
         body {
             background-color: #e0f7fa;
@@ -13,7 +14,7 @@
             margin: 0;
             padding: 0;
             color: #333;
-            cursor: url('./pokeball.png'), auto;
+            /* cursor: url('./pokeball.png'), auto; */
         }
 
         .container {
@@ -115,16 +116,7 @@
             margin-right: 5px;
         }
 
-        .filter-wrapper {
-            display: flex;
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 70px;
-            right: 20px;
-        }
+
 
         .filter-wrapper p {
             margin: 0;
@@ -156,16 +148,8 @@
             gap: 20px;
             justify-content: center;
         }
-
-        .list-item {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            width: calc(33% - 20px); /* Adjust as needed for responsive design */
-        }
+/* */
+        
 
         .list-item:hover {
             transform: translateY(-5px);
@@ -241,51 +225,58 @@
                 margin-top: 10px;
             }
         }
+        .pokedex{
+            color: #df0404;
+        }
 
-    </style>
+    </style> 
 </head>
 <body>
+    
     <main class="main">
-        <header class="header-name">
+        <header>
+            <div class="container">
+              <a href="" class="logo">
+                <img src="img/logo.svg" alt="Logo pokemon" title="logo pokemon">
+              </a>
+            </div>
+          </header>
             <div class="container">
                 <div class="name-search">
                     <div class="logo-wrapper">
-                        <img src="./assets/charizardfly.gif" alt="charizardfly">
-                        <img src="./assets/pokeball.svg" alt="pokeball" class="pokeball">
-                        <h1 class="pokedex">Pokédex</h1>
+                        <h1 class="pokedex" style="color: #df0404;">Pokédex</h1>
                     </div>
                     <div class="search-wrapper">
-                        <div class="search-wrap">
-                            <img src="./assets/search.svg" alt="search icon" class="search-icon"/>
-                            <input type="text" autofocus class="search-input body3-fonts" placeholder="Search" id="search-input">
-                            <img src="./assets/cross.svg" alt="cross icon" class="search-close-icon" id="search-close-icon">
-                        </div>
-                    </div>
-                    <div class="sort-wrapper">
-                        <div class="sort-wrap">
-                            <!-- <img src="./assets/sorting.svg" alt="sorting" class="sort-icon" id="sort-icon"> -->
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="filter-wrapper">
-                        <p class="body2-fonts">Sort by:</p>
-                        <div class="filter-wrap">
-                            <div>
-                                <input type="radio" id="number" name="filter" value="number" checked>
-                                <label for="number" class="body3-fonts">Number</label>
+                            <div class="search">
+                                <input type="text" autofocus class="search-input body3-fonts" placeholder="Search name or code" id="search-input">
+                                <button type="button" id="js-btn-search">
+                                  <img src="./img/icon-search.svg" alt="">
+                                </button>
                             </div>
-                            <div>
-                                <input type="radio" id="name" name="filter" value="name">
-                                <label for="name" class="body3-fonts">Name</label>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </header>
+
+
+        <div class="filter-wrapper" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <input class="form-check-input" type="radio" name="filter" id="name" value="name" checked style="width: 20px; height: 20px; margin: 0; padding: 0; vertical-align: middle; cursor: pointer;"/>
+                <label class="form-check-label" for="name" style="font-size: 16px; line-height: 20px; margin: 0; padding: 0; vertical-align: middle; cursor: pointer; color: #333;">
+                    Name
+                </label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <input class="form-check-input" type="radio" name="filter" id="number" value="number" style="width: 20px; height: 20px; margin: 0; padding: 0; vertical-align: middle; cursor: pointer;"/>
+                <label class="form-check-label" for="number" style="font-size: 16px; line-height: 20px; margin: 0; padding: 0; vertical-align: middle; cursor: pointer; color: #333;">
+                    Number
+                </label>
+            </div>
+        </div>
+        
         <section class="pokemon-list">
             <div class="container">
-                <div class="list-wrapper">
+                <div class="list-wrapper" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;"></div>>
                 </div>
             </div>
             <div id="not-found-message">Pokemon not found</div>

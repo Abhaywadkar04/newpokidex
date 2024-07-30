@@ -245,7 +245,7 @@ body {
 .filter-wrap input {
   accent-color: var(--identity-primary);
 }
-
+/* 
 .pokemon-list {
   background-color: var(--grayscale-white);
   box-shadow: var(--drop-shadow-inner);
@@ -254,16 +254,9 @@ body {
   width: calc(100% - 1rem);
   max-height: 100px;
   overflow-y: auto;
-}
+} */
 
-.list-wrapper {
-  margin: 1rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
+
 
 .list-item {
   border-radius: 8px;

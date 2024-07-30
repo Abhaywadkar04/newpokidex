@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="./pokemon.js" defer></script>
+<head>
+  <!-- Font family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./css/plugins.css">
+  <link rel="stylesheet" href="./main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="./favicon.svg">
+  <!-- HTML5 shiv and Respond.js support IE8 or Older for HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!-- Primary Meta Tags -->
+  <title>Project Pokemon | Landing Page</title>
+  <meta name="title" content="Project Pokemon | Landing Page">
+  <meta name="description" content="The webpage is using PokeAPI to get pokemon data. All the Pokémon data you'll ever need in one place,
+  easily accessible through a modern RESTful API. I have specifically personalized each of them and created a modal to show all characteristics. ">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ruivergani.github.io/lp-pokemon/">
+  <meta property="og:title" content="Project Pokemon | Landing Page">
+  <meta property="og:description" content="The webpage is using PokeAPI to get pokemon data. All the Pokémon data you'll ever need in one place,
+  easily accessible through a modern RESTful API. I have specifically personalized each of them and created a modal to show all characteristics. ">
+  <meta property="og:image" content="https://ruivergani.github.io/lp-pokemon/cover.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ruivergani.github.io/lp-pokemon/">
+  <meta property="twitter:title" content="Project Pokemon | Landing Page">
+  <meta property="twitter:description" content="The webpage is using PokeAPI to get pokemon data. All the Pokémon data you'll ever need in one place,
+  easily accessible through a modern RESTful API. I have specifically personalized each of them and created a modal to show all characteristics. ">
+  <meta property="twitter:image" content="https://ruivergani.github.io/lp-pokemon/cover.png">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="" class="logo">
+        <img src="img/logo.svg" alt="Logo pokemon" title="logo pokemon">
+      </a>
+    </div>
+  </header>
+
+  <section class="s-area-slide-hero">
+    <!-- Class that holds slide -->
+    <div class="slide-hero">
+      <div class="swiper-wrapper">
+        <!-- Slide 01 -->
+        <div class="swiper-slide">
+          <!-- Inside each slide -->
+          <div class="main-area">
+            <div class="container">
+              <div class="text">
+                <!-- tag component -->
+                <div class="tag">
+                  <div class="icon">
+                    <img src="./img/bag-red.svg" alt="">
+                  </div>
+                  <span>pokedex</span>
+                </div>
+                <!-- H1 and P -->
+                <h1>Who is that Pokémon?</h1>
+                <p>The perfect guide for those who want to hunt Pokémons around the world</p>
+                <!-- image pokeball -->
+                <div class="image">
+                  <img src="./img/lighting.svg" alt="lights" title="lights" class="lights">
+                  <img src="./img/pokeball-red.png" alt="pokeball" title="pokeball" class="pokeball">
+                </div>
+              </div>
+             
+                  
+              <section class="s-all-info-pokemons">
+    <div class="container">
+      <!-- Top Section -->
+      <div class="top">
+        <h2>Select your Pokémon</h2>
+        
+            </div>
+          </div>
+        </div>
+        <!-- Slide 02 -->
+        <div class="swiper-slide blue"> <!-- tag for the background -->
+          <!-- Inside each slide -->
+          <div class="main-area">
+            <div class="container">
+              <div class="text">
+                <!-- tag component -->
+                <div class="tag blue-tag">
+                  <div class="icon">
+                    <img src="./img/bag-red.svg" alt="">
+                  </div>
+                  <span>pokedex</span>
+                </div>
+                <!-- H1 and P -->
+                <h1>Catch them all!</h1>
+                <p>The perfect guide for those who want to hunt Pokémons around the world</p>
+                <!-- image pokeball -->
+                <div class="image">
+                  <img src="./img/lighting.svg" alt="lights" title="lights" class="lights">
+                  <img src="./img/pokeball-blue.png" alt="pokeball" title="pokeball" class="pokeball">
+                </div>
+                
+              </div>
+              <div class="area-explore">
+                  <div class="txt">
+                    <div class="icon">
+                      <img src="img/arrow-down-white.svg" alt="">
+                    
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pokemon-list">
+    <div class="container">
+      <div class="list-wrapper2" id="listWrapper2" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <div class="row">
+          <div class="col" style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px);"></div>
+          <div class="col" style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px);"></div>
+          <div class="col" style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px);"></div>
+        </div>
+        <div class="row">
+          <div class="col" style="flex: 0 0 calc(33.33% - 10px); max-width: calc(33.33% - 10px);"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div style="display:flex; justify-content:center; margin-top: 2rem; margin-bottom: 2rem;">
+    <a href="index.html" style="text-decoration:none;">
+      <button class="btn-load-more" id="js-btn-load-more" style="display:block; margin:auto;">
+        Load more Pokemons
+      </button>
+    </a>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="text">
+        <h3>JavaScript Module</h3>
+        <p>Using data from API</p>
+      </div>
+
+    </div>
+  </footer>
+
+  
